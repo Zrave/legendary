@@ -4,7 +4,7 @@ var request = require('request');
 var moment = require('moment');
 
 
-client.on('message', message = > {
+client.on('message', message => {
 
     if (message.content.match(new RegExp(/^!lkp/g)))
 {
@@ -78,12 +78,12 @@ function getDungeonKillpoints(json) {
     var heroicDungeons = 0;
     var mythicDungeons = 0;
 
-    json.statistics.subCategories.find(subCategory = >
+    json.statistics.subCategories.find(subCategory =>
     subCategory.id == 14807
 ).
-    subCategories.find(subCategory = > subCategory.id == 15264
+    subCategories.find(subCategory => subCategory.id == 15264
 ).
-    statistics.forEach(dungeon = > {
+    statistics.forEach(dungeon => {
         normalDungeons += (NORMAL_DUNGEONS.indexOf(dungeon.id) < 0) ? 0 : dungeon.quantity;
     heroicDungeons += (HEROIC_DUNGEONS.indexOf(dungeon.id) < 0) ? 0 : dungeon.quantity;
     mythicDungeons += (MYTHIC_DUNGEONS.indexOf(dungeon.id) < 0) ? 0 : dungeon.quantity;
