@@ -12,8 +12,7 @@ client.on('message', message => {
     if (subjectTokens.length === 2) {
       var subject = subjectTokens[1];
       var armoryTokens = subject.split("/");
-      var realm = 'us', serv
-      er = 'sargeras', char;
+      var realm = 'us', server = 'sargeras', char;
       if (armoryTokens.length === 3) {
         realm = armoryTokens[0];
         server = armoryTokens[1];
