@@ -191,7 +191,7 @@ function estimate(killpoints) {
             message = "You should have received " + amount + " legendaries so far.";
 
         }
-        message += " . You have around " + killpoints + " killpoints and your next legendary will come around " + breakpoints[amount + 1] + " killpoints";
+        message += "  You have around " + killpoints + " killpoints and your next legendary will come around " + breakpoints[amount] + " killpoints";
     }
 
     return message;
