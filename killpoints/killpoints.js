@@ -146,7 +146,7 @@ function getDungeonKillpoints(json) {
           message = "You should have received " + amount + " legendaries so far.";
 
         }
-        message += "  You have around " + killpoints + " killpoints and your next legendary will come around " + breakpoints[amount] + " killpoints";
+        message += "  You have around " + killpoints + " killpoints and your next legendary will drop at around " + breakpoints[amount] + " killpoints";
       }
 
       return message;

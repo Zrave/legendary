@@ -33,7 +33,7 @@ client.on('message', message => {
         var info = JSON.parse(body);
         console.log(info.name);
         var points = killpoints.getKillpoints(info);
-        message.reply(killpoints.estimate(points));
+        message.channel.sendMessage(killpoints.estimate(points));
       });
     }
   }});
