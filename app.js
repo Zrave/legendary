@@ -32,8 +32,8 @@ client.on('message', message => {
         console.log(response.statusCode) // 200
         var info = JSON.parse(body);
         console.log(info.name);
-        var killpoints = killpoints.getKillpoints(info);
-        message.reply(killpoints.estimate(killpoints));
+        var points = killpoints.getKillpoints(info);
+        message.reply(killpoints.estimate(points));
       });
     }
   }});
