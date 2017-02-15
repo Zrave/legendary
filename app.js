@@ -6,7 +6,7 @@ var moment = require('moment');
 
 client.on('message', message = > {
 
-    if (message.content && message.content.startsWith('!lkp'))
+    if (message.content.match(new RegExp(/^!lkp/g)))
 {
     var subjectTokens = message.content.split(" ");
     if (subjectTokens.length === 2) {
