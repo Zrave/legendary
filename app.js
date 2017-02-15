@@ -3,13 +3,11 @@ const client = new Discord.Client();
 var request = require('request');
 var moment = require('moment');
 
-client.on('ready', () = > {
-    console.log('I am ready!');
-});
 
 client.on('message', message = > {
 
-if (message.content && message.content.startsWith('!lkp')) {
+    if (message.content && message.content.startsWith('!lkp'))
+{
     var subjectTokens = message.content.split(" ");
     if (subjectTokens.length === 2) {
         var subject = subjectTokens[1];
@@ -20,14 +18,16 @@ if (message.content && message.content.startsWith('!lkp')) {
             server = armoryTokens[1];
             char = armoryTokens[2];
         } else if (armoryTokens.length === 2) {
-           server = armoryTokens[0];
+            server = armoryTokens[0];
             char = armoryTokens[1];
         } else if (armoryTokens.length === 1) {
             char = armoryTokens[0];
         }
-        if (!char) {return;}
+        if (!char) {
+            return;
+        }
 
-        var url = 'https://'+realm+'.api.battle.net/wow/character/'+server +'/'+char+'?fields=progression,achievements,statistics&apikey=kr2bfgpv5wtx5entzwkvvq6kqpwfwg7e';
+        var url = 'https://' + realm + '.api.battle.net/wow/character/' + server + '/' + char + '?fields=progression,achievements,statistics&apikey=kr2bfgpv5wtx5entzwkvvq6kqpwfwg7e';
         request(url, function (error, response, body) {
             console.log(response.statusCode) // 200
             console.log(response.headers['content-type']) // 'image/png'
@@ -38,7 +38,8 @@ if (message.content && message.content.startsWith('!lkp')) {
         });
     }
 }
-});
+})
+;
 
 function getKillpoints(json, chests, emissaries) {
     return Math.round(getDailyKillpoints(json.achievements, emissaries) + getWeeklyChestKillpoints(json.achievements, chests) + getDungeonKillpoints(json) + getRaidKillpoints(json.progression.raids));
@@ -190,7 +191,7 @@ function estimate(killpoints) {
             message = "You should have received " + amount + " legendaries so far.";
 
         }
-        message += " . You have around "+ killpoints + " killpoints and your next legendary will come around " + breakpoints[amount+1] + " killpoints";
+        message += " . You have around " + killpoints + " killpoints and your next legendary will come around " + breakpoints[amount + 1] + " killpoints";
     }
 
     return message;
